@@ -1,3 +1,4 @@
 django==3.2
 Pillow
 mysqlclient
+django-admin-tailwind
