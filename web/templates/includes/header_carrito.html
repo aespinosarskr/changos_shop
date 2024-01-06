@@ -2,27 +2,27 @@
     <a class="cart-contents" href="cart.html">
         <p class="h-cart-icon">
             <i class="ion-android-cart"></i>
-            <span>1</span>
+            <span>{{request.session.cart.items|length}}</span>
         </p>
-        <p class="h-cart-total">$100</p>
+        <p class="h-cart-total">${{request.session.cartMontoTotal}}</p>
     </a>
     <div class="widget_shopping_cart">
         <div class="widget_shopping_cart_content">
             <ul class="cart_list">
-                
+                {% for key, value in request.session.cart.items %}
                 <li>
-                    <a href="#" class="remove">&times;</a>
+                    <a href="{% url 'web:eliminarProductoCarrito' value.producto_id %}" class="remove">&times;</a>
                     <a href="#">
-                        <img src="https://via.placeholder.com/250" alt="">
-                        Producto
+                        <img src="{{value.imagen}}" alt="">
+                        {{value.nombre}}
                     </a>
-                    <span class="quantity">1 &times; $100</span>
+                    <span class="quantity">{{value.cantidad}} &times; ${{value.subtotal}}</span>
                 </li>
-                
+                {% endfor %}
             </ul>
-            <p class="total"><b>Subtotal:</b> $100</p>
+            <p class="total"><b>Total:</b> ${{request.session.cartMontoTotal}}</p>
             <p class="buttons">
-                <a href="#" class="button">Ver Carrito</a>
+                <a href="{% url 'web:carrito' %}" class="button">Ver Carrito</a>
                 <a href="#" class="button">Pedido</a>
             </p>
         </div>

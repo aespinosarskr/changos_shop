@@ -16,7 +16,7 @@
                 <div class="prod-li-cont">
                     <div class="prod-li-ttl-wrap">
                         <p>
-                            <a href="#">{{value.categoria}}</a>
+                            <a href="#">{{ value.categoria }}</a>
                         </p>
                         <h3><a href="product.html">{{ value.nombre }}</a></h3>
                     </div><!--
@@ -24,12 +24,12 @@
     --><div class="prod-li-prices">
                     <div class="prod-li-price-wrap">
                         <p>Precio</p>
-                        <p class="prod-li-price">${{value.precio}}</p>
+                        <p class="prod-li-price">${{ value.precio }}</p>
                     </div>
                     <div class="prod-li-qnt-wrap">
                         <p class="qnt-wrap prod-li-qnt">
                             <a href="#" class="qnt-plus prod-li-plus"><i class="icon ion-arrow-up-b"></i></a>
-                            <input type="text" value="{{value.cantidad}}">
+                            <input type="text" value="{{ value.cantidad }}">
                             <a href="#" class="qnt-minus prod-li-minus"><i class="icon ion-arrow-down-b"></i></a>
                         </p>
                     </div>
@@ -80,7 +80,7 @@ No Space
         </div>
         <div class="cart-collaterals">
             <a href="{% url 'web:limpiarCarrito' %}" class="checkout-button button">Limpiar Carrito</a>
-            <a href="{% url 'web:registrarPedido' %}" class="checkout-button button">Realizar Pedido</a>
+            <a href="" class="checkout-button button">Realizar Pedido</a>
             <div class="order-total">
                 <p class="cart-totals-ttl">Total</p>
                 <p class="cart-totals-val">${{request.session.cartMontoTotal}}</p>
